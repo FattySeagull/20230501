@@ -1,2 +1,4 @@
 /figs/*
 desktop.ini
+*.csv
+*.npz
