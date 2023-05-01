@@ -121,4 +121,4 @@ if __name__=='__main__':
     # save to file
     fname = './rosenthal-gauss_{0:.0f}W_{1:.0f}mm_s'.format(P, u)
     np.savez(fname, xv, yv, Tv)
-    np.savetxt(fname, np.concatenate([xv, yv, Tv]))
+    np.savetxt(fname + '.csv', np.concatenate([xv, yv, Tv]))
