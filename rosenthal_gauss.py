@@ -104,10 +104,10 @@ if __name__=='__main__':
     yv = yv.reshape([-1,1])
     zv = zv.reshape([-1,1])
 
-    zv = [np.sum(np.clip(Rosenthal((xgv - xvi)*1E-3, (ygv - yvi)*1E-3, 0.0, Pdis, u*1E-3, lmda, alph), None, Tth)) for xvi, yvi in zip(xv,yv)]
+    zv = np.array([np.sum(np.clip(Rosenthal((xgv - xvi)*1E-3, (ygv - yvi)*1E-3, 0.0, Pdis, u*1E-3, lmda, alph), None, Tth)) for xvi, yvi in zip(xv,yv)])
     xv = xv.reshape(xvshape)
     yv = yv.reshape(yvshape)
-    zv = np.reshape(np.array(zv), xvshape)
+    zv = np.reshape(xvshape)
     Tv = zv + T0
 
     fig, ax = plt.subplots(1, 1)
