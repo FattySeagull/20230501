@@ -5,3 +5,5 @@ print(a_2d)
 
 for element in a_2d:
     print(element)
+
+print(a_2d.T)

@@ -110,6 +110,12 @@ if __name__=='__main__':
     zv = zv.reshape(xvshape)
     Tv = zv + T0
 
+    xv_T = xv.T
+    for row in xv.T:
+        print(row[::5])
+    for row in yv.T:
+         print(row[::5])
+
     fig, ax = plt.subplots(1, 1)
     plot = ax.contourf(xv, yv, Tv, levels=[0.0, 1260, 1340, 2000, 2800])
     fig.colorbar(plot, label="Temperature, K")  # Add a colorbar to a plot

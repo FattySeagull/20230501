@@ -1,6 +1,17 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+def PositionAtTemp(x, y, a, Tf):
+    Tf = 1340
+    mask0 = a <= Tf # lower node
+    mask1 = a > Tf  # upper node
+    a0 = a[mask0][-1]
+    a1 = a[mask1][0]
+    xy0 = np.array([x[mask0][-1], y[mask0][-1]])
+    xy1 = np.array([x[mask1][0], y[mask1][0]])
+    xy = ((a1 - 1341)*xy0 + (1340-a0)*(xy1))/(a1-a0)
+    return xy
+
 a = np.arange(1200.0, 1400.0, 20.0)
 x = np.arange(0.0, 5.0, (5.0-0.0)/np.size(a))
 y = np.arange(0.0, 2.0, (2.0-0.0)/np.size(a))
